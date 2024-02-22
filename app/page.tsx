@@ -25,7 +25,7 @@ const INPUT_DEFAULTS = {
   image_size: "square_hd",
   sync_mode: true,
   num_images: 1,
-  num_inference_steps: "2",
+  num_inference_steps: "1",
 };
 
 export default function Lightning() {
