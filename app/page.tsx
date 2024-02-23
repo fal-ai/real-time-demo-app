@@ -25,7 +25,7 @@ const INPUT_DEFAULTS = {
   image_size: "square_hd",
   sync_mode: true,
   num_images: 1,
-  num_inference_steps: "1",
+  num_inference_steps: "2",
 };
 
 export default function Lightning() {
@@ -44,22 +44,12 @@ export default function Lightning() {
     },
   });
 
-  const timer_2x = useRef<any | undefined>(undefined);
-  const timer_4x = useRef<any | undefined>(undefined);
-  const timer_8x = useRef<any | undefined>(undefined);
-  const timers = {
-    2: timer_2x,
-    4: timer_4x,
-    8: timer_8x,
-  };
+  const timer = useRef<any | undefined>(undefined);
 
   const handleOnChange = async (prompt: string) => {
-
-    Object.values(timers).forEach((t) => {
-      if (t.current) {
-        clearTimeout(t.current);
-      }
-    });
+    if (timer.current) {
+      clearTimeout(timer.current);
+    }
     setPrompt(prompt);
     const input = {
       ...INPUT_DEFAULTS,
@@ -67,13 +57,9 @@ export default function Lightning() {
       seed: seed ? Number(seed) : Number(randomSeed()),
     };
     connection.send(input);
-    // Iterate over the timers and set a timeout for each with
-    // the inference step count as the key
-    for (const [key, value] of Object.entries(timers)) {
-      value.current = setTimeout(() => {
-        connection.send({ ...input, num_inference_steps: key });
-      }, 100 * Number(key));
-    }
+    timer.current = setTimeout(() => {
+      connection.send({ ...input, num_inference_steps: "4" });
+    }, 500);
   };
 
   useEffect(() => {
@@ -83,7 +69,7 @@ export default function Lightning() {
     // initial image
     connection.send({
       ...INPUT_DEFAULTS,
-      num_inference_steps: "8",
+      num_inference_steps: "4",
       prompt: prompt,
       seed: seed ? Number(seed) : Number(randomSeed()),
     });
