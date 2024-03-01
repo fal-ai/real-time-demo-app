@@ -77,70 +77,76 @@ export default function Lightning() {
 
   return (
     <main>
-      <div className="container py-4 px-1.5 space-y-4 lg:space-y-8 mx-auto">
-        <div className="flex flex-col space-y-2">
-          <div className="flex flex-col max-md:space-y-4 md:flex-row md:space-x-4">
-            <div className="flex-1 space-y-1">
-              <label>Prompt</label>
-              <Input
-                onChange={(e) => {
-                  handleOnChange(e.target.value);
-                }}
-                className="font-light w-full"
-                placeholder="Type something..."
-                value={prompt}
-              />
-            </div>
-            <div className="space-y-1">
-              <label>Seed</label>
-              <Input
-                onChange={(e) => {
-                  setSeed(e.target.value);
-                  handleOnChange(prompt);
-                }}
-                className="font-light w-full"
-                placeholder="random"
-                type="number"
-                value={seed}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col space-y-6 lg:flex-row lg:space-y-0">
-          <div className="flex-1 flex-col flex items-center justify-center">
-            {image && inferenceTime && (
-              <div className="flex flex-row space-x-1">
-                <span>inference time</span>
-                <strong>
-                  {inferenceTime
-                    ? `${(inferenceTime * 1000).toFixed(0)}ms`
-                    : `n/a`}
-                </strong>
+      <div className="flex flex-col justify-between h-[calc(100vh-56px)]">
+        <div className="py-4 md:py-10 px-0 space-y-4 lg:space-y-8 mx-auto w-full max-w-xl">
+          <div className="container px-3 md:px-0 flex flex-col space-y-2">
+            <div className="flex flex-col max-md:space-y-4 md:flex-row md:space-x-4 max-w-full">
+              <div className="flex-1 space-y-1">
+                <label>Prompt</label>
+                <Input
+                  onChange={(e) => {
+                    handleOnChange(e.target.value);
+                  }}
+                  className="font-light w-full"
+                  placeholder="Type something..."
+                  value={prompt}
+                />
               </div>
-            )}
-            <div className="min-h-[512px] max-w-fit">
-              {image && (
-                <img id="imageDisplay" src={image} alt="Dynamic Image" />
+              <div className="space-y-1">
+                <label>Seed</label>
+                <Input
+                  onChange={(e) => {
+                    setSeed(e.target.value);
+                    handleOnChange(prompt);
+                  }}
+                  className="font-light w-28"
+                  placeholder="random"
+                  type="number"
+                  value={seed}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="container flex flex-col space-y-6 lg:flex-row lg:space-y-0 p-3 md:p-0">
+            <div className="flex-1 flex-col flex items-center justify-center">
+              {image && inferenceTime && (
+                <div className="flex flex-row space-x-1 text-sm w-full mb-2">
+                  <span className="text-neutral-500">Inference time:</span>
+                  <span
+                    className={
+                      !inferenceTime ? "text-neutral-500" : "text-green-400"
+                    }
+                  >
+                    {inferenceTime
+                      ? `${(inferenceTime * 1000).toFixed(0)}ms`
+                      : `n/a`}
+                  </span>
+                </div>
               )}
+              <div className="md:min-h-[512px] max-w-fit">
+                {image && (
+                  <img id="imageDisplay" src={image} alt="Dynamic Image" />
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="container flex flex-col items-center justify-center my-4">
-        <p className="text-sm text-base-content/70 py-4 text-center">
-          This playground is hosted on{" "}
-          <strong>
-            <a href="https://fal.ai" className="underline" target="_blank">
-              fal.ai
-            </a>
-          </strong>{" "}
-          and is for demonstration purposes only.
-        </p>
-        <div className="flex flex-row items-center space-x-2">
-          <span className="text-xs font-mono">powered by</span>
-          <Link href="https://fal.ai" target="_blank">
-            <ModelIcon />
-          </Link>
+        <div className="container flex flex-col items-center justify-center my-4">
+          <p className="text-sm text-base-content/70 py-4 text-center text-neutral-400">
+            This playground is hosted on{" "}
+            <strong>
+              <a href="https://fal.ai" className="underline" target="_blank">
+                fal.ai
+              </a>
+            </strong>{" "}
+            and is for demonstration purposes only.
+          </p>
+          <div className="flex flex-row items-center space-x-2">
+            <span className="text-xs font-mono">powered by</span>
+            <Link href="https://fal.ai" target="_blank">
+              <ModelIcon />
+            </Link>
+          </div>
         </div>
       </div>
     </main>

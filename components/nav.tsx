@@ -14,12 +14,7 @@ const spaceMono = Space_Mono({
 
 export function Nav() {
   return (
-    <div
-      className="
-      py-2 px-2
-      md:px-8
-      border-b flex items-center"
-    >
+    <div className="h-14 py-2 px-2 md:px-8 border-b flex items-center">
       <div className="flex flex-1 items-center">
         <Link href="/">
           <h1 className={cn("font-light text-xl", spaceMono.className)}>
@@ -38,7 +33,9 @@ export function Nav() {
             target="_blank"
           >
             <GithubIcon className="h-5 w-5" />
-            <span>Fork on GitHub</span>
+            <span>
+              <span className="hidden md:inline-block">Fork on</span> GitHub
+            </span>
           </Link>
         </Button>
       </div>
