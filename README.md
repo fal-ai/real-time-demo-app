@@ -9,7 +9,11 @@ This application is a sample of the SDXL Lightning API [https://fal.ai/models/st
 ### Getting started
 
 1. Add the `FAL_KEY` to your `.env.local` file.
-2. Run
+2. Install dependencies
+    ```sh
+    npm install
+    ```
+4. Run
     ```sh
     npm run dev
     ```
