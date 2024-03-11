@@ -13,7 +13,7 @@ This application is a sample of the SDXL Lightning API [https://fal.ai/models/st
     ```sh
     npm install
     ```
-4. Run
+3. Run
     ```sh
     npm run dev
     ```
