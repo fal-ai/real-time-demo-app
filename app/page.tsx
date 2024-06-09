@@ -34,7 +34,7 @@ function DisabledMessage() {
     <div className="flex flex-col mt-60">
       <div className="py-4 px-0 space-y-4 lg:space-y-8 mx-auto">
         <h1 className="text-lg">
-          Hey there! We'll be back after a short break!{" "}
+          Hey there! We will be back after a short break!{" "}
         </h1>
 
         <p className="text-lg">
