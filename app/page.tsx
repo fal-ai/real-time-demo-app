@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { ModelIcon } from "@/components/icons/model-icon";
 import Link from "next/link";
 
-const DISABLED = true;
+const DISABLED = false;
 const DEFAULT_PROMPT =
   "A cinematic shot of a baby raccoon wearing an intricate italian priest robe";
 
@@ -46,7 +46,7 @@ function DisabledMessage() {
           In the meantime, feel free to fork this{" "}
           <a
             className="underline"
-            href="https://github.com/fal-ai/sdxl-lightning-demo-app"
+            href="https://github.com/fal-ai/real-time-demo-app"
           >
             repo
           </a>{" "}
@@ -71,8 +71,8 @@ export default function Lightning() {
   const [seed, setSeed] = useState<string>(randomSeed());
   const [inferenceTime, setInferenceTime] = useState<number>(NaN);
 
-  const connection = fal.realtime.connect("fal-ai/fast-lightning-sdxl", {
-    connectionKey: "lightning-sdxl",
+  const connection = fal.realtime.connect("fal-ai/flux-schnell-realtime", {
+    connectionKey: "flux-schnell-realtime",
     throttleInterval: 64,
     onResult: (result) => {
       const blob = new Blob([result.images[0].content], { type: "image/jpeg" });

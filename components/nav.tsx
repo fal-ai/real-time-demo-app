@@ -18,9 +18,9 @@ export function Nav() {
       <div className="flex flex-1 items-center">
         <Link href="/">
           <h1 className={cn("font-light text-xl", spaceMono.className)}>
-            <span className="text-pink-700">sdxl</span>
+            <span className="text-pink-700">fal</span>
             <span>⚡️</span>
-            <span>lightning</span>
+            <span>realtime</span>
           </h1>
         </Link>
       </div>
@@ -28,7 +28,7 @@ export function Nav() {
         <ThemeToggle />
         <Button size="sm" asChild>
           <Link
-            href="https://github.com/fal-ai/sdxl-lightning-demo-app"
+            href="https://github.com/fal-ai/real-time-demo-app"
             className="flex flex-row space-x-2 items-center"
             target="_blank"
           >
