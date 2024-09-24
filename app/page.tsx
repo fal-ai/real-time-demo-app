@@ -71,8 +71,8 @@ export default function Lightning() {
   const [seed, setSeed] = useState<string>(randomSeed());
   const [inferenceTime, setInferenceTime] = useState<number>(NaN);
 
-  const connection = fal.realtime.connect("fal-ai/flux/schnell", {
-    connectionKey: "flux-schnell",
+  const connection = fal.realtime.connect("fal-ai/flux-schnell-realtime", {
+    connectionKey: "flux-schnell-realtime",
     throttleInterval: 64,
     onResult: (result) => {
       const blob = new Blob([result.images[0].content], { type: "image/jpeg" });
