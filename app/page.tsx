@@ -22,8 +22,11 @@ fal.config({
 
 const INPUT_DEFAULTS = {
   _force_msgpack: new Uint8Array([]),
-  enable_safety_checker: true,
-  image_size: "square_hd",
+  enable_safety_checker: false,
+  image_size: {
+    width: 768,
+    height: 768,
+  },
   sync_mode: true,
   num_images: 1,
   num_inference_steps: "2",
